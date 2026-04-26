@@ -1,0 +1,37 @@
+insta_balance = 5000
+cripto = 0
+is_true = False
+nalic = 0
+while is_true == False:
+    try:
+        z = int(input(f"1 - Пополнить, 2 - Снять деньги, 3 - Выход" ))
+        if z == 1:
+            try:
+                x = int(input(f"На сколько вы хотите пополнить? "))
+                if x < 0:
+                    print(f"Нельзя пополнить отрицательную сумму денег!")
+                    continue
+                print(f"Пополнение прошло успешно!")
+                insta_balance += x
+                print(f"Кошелёк составляет: {insta_balance}")
+            except ValueError:
+                print(f"Ошибка... Введите пожалуйста число")
+        if z == 2:
+            try:
+                c = int(input(f"Сколько денег хотите снять?"))
+                if c < 0:
+                    print(f"Нельзя снять ничего! :)")
+                    continue
+                elif c > insta_balance:
+                    print(f"Денег недостаточно на карте!")
+                    continue
+                nalic += c
+                print(f"Операция прошла успешно! Наличные деньги составляют: {nalic}")
+                insta_balance -= c
+            except ValueError:
+                print(f"Произошла ошибка... Введите число пожалуйста!")
+        if z == 3:
+            print(f"Выход...")
+            is_true = True
+    except ValueError:
+        print(f"Ошибка... Введите пожалуйста число!")
